@@ -114,6 +114,7 @@ module Twilio
       uri = URI.parse(url)
       
       http = Net::HTTP.new(uri.host, uri.port)
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       http.use_ssl = true
       
       if method && method == 'GET'
